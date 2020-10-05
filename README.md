@@ -1,2 +1,3 @@
 # AbyssalKit
-Abyssal's extensions and utilities for Swift and SwiftUI
+
+My extensions and utilities for Swift and SwiftUI
