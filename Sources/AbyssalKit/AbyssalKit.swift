@@ -2,13 +2,13 @@ import Foundation
 import UIKit
 import SwiftUI
 
-enum Direction {
+public enum Direction {
     case back
     case nearest
     case forward
 }
 
-struct DateFormats {
+public struct DateFormats {
     static var longDate = "EEEE, MMM d, yyyy"
     static var time = "h:mm aa"
 }
