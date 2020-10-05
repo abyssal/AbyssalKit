@@ -14,21 +14,21 @@ struct DateFormats {
 }
 
 extension Date {
-    func asLongDateString() -> String {
+    public func asLongDateString() -> String {
         return self.string(inFormat: DateFormats.longDate)
     }
     
-    func asTimeString() -> String {
+    public func asTimeString() -> String {
         return self.string(inFormat: DateFormats.time)
     }
     
-    func string(inFormat in0: String) -> String {
+    public func string(inFormat in0: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = in0
         return dateFormatter.string(from: self)
     }
     
-    func getWeekday(_ direction: Direction) -> Date {
+    public func getWeekday(_ direction: Direction) -> Date {
         var tempDate = self
         if Calendar.current.isDateInWeekend(tempDate) {
             if direction == .nearest {
@@ -58,19 +58,19 @@ extension Date {
 }
 
 extension String {
-    func date(inFormat in0: String) -> Date? {
+    public func date(inFormat in0: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = in0
         return dateFormatter.date(from: self)
     }
     
-    func asPcsDate() -> Date? {
+    public func asPcsDate() -> Date? {
         let components = self.components(separatedBy: "/")
         return Calendar.current.date(from: DateComponents(calendar: Calendar.current, timeZone: TimeZone.current, year: Int(components[2]), month: Int(components[1]), day: Int(components[0])))
     }
     
-    func randomUIColor() -> UIColor {
+    public func randomUIColor() -> UIColor {
         var total: Int = 0
         for u in self.unicodeScalars {
             total += Int(UInt32(u))
@@ -84,7 +84,7 @@ extension String {
         return UIColor(red: r, green: g, blue: b, alpha: 1)
     }
     
-    func randomColor() -> Color {
+    public func randomColor() -> Color {
         return Color(self.randomUIColor()).opacity(1)
     }
 }
@@ -112,7 +112,7 @@ extension UIColor {
         )
     }
     
-    func toHexString() -> String {
+    public func toHexString() -> String {
         var r:CGFloat = 0
         var g:CGFloat = 0
         var b:CGFloat = 0
